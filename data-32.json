@@ -1,0 +1,208 @@
+{
+    "teams": [
+        [
+            {
+                "name": "Australia",
+                "flag": "au"
+            },
+            {
+                "name": "Croatia",
+                "flag": "cr"
+            }
+        ],
+        [
+            {
+                "name": "New Zealand",
+                "flag": "nz"
+            },
+            {
+                "name": "Egypt",
+                "flag": "eg"
+            }
+        ],
+        [
+            {
+                "name": "Poland",
+                "flag": "pl"
+            },
+            {
+                "name": "Brazil",
+                "flag": "br"
+            }
+        ],
+        [
+            {
+                "name": "Italy",
+                "flag": "it"
+            },
+            {
+                "name": "Portugal",
+                "flag": "pt"
+            }
+        ],
+        [
+            {
+                "name": "Denmark",
+                "flag": "dk"
+            },
+            {
+                "name": "France",
+                "flag": "fr"
+            }
+        ],
+        [
+            {
+                "name": "United Arab Emirates",
+                "flag": "ae"
+            },
+            {
+                "name": "Norway",
+                "flag": "no"
+            }
+        ],
+        [
+            {
+                "name": "Greece",
+                "flag": "gr"
+            },
+            {
+                "name": "Spain",
+                "flag": "es"
+            }
+        ],
+        [
+            {
+                "name": "Hungary",
+                "flag": "hu"
+            },
+            {
+                "name": "Germany",
+                "flag": "de"
+            }
+        ],
+        [
+            {
+                "name": "Sweden",
+                "flag": "sv"
+            },
+            {
+                "name": "Slovakia",
+                "flag": "sl"
+            }
+        ],
+        [
+            {
+                "name": "Belgium",
+                "flag": "be"
+            },
+            {
+                "name": "Austria",
+                "flag": "at"
+            }
+        ],
+        [
+            {
+                "name": "Federated States of Micronesia",
+                "flag": "sm"
+            },
+            {
+                "name": "Canada",
+                "flag": "ca"
+            }
+        ],
+        [
+            {
+                "name": "South Africa",
+                "flag": "za"
+            },
+            {
+                "name": "Maroco",
+                "flag": "mr"
+            }
+        ],
+        [
+            {
+                "name": "India",
+                "flag": "in"
+            },
+            {
+                "name": "Nepal",
+                "flag": "ne"
+            }
+        ],
+        [
+            {
+                "name": "Kongo",
+                "flag": "kg"
+            },
+            {
+                "name": "Bolivia",
+                "flag": "bo"
+            }
+        ],
+        [
+            {
+                "name": "Mexico",
+                "flag": "mx"
+            },
+            {
+                "name": "Peru",
+                "flag": "pe"
+            }
+        ],
+        [
+            {
+                "name": "Cuba",
+                "flag": "cu"
+            },
+            {
+                "name": "Paraguay",
+                "flag": "pg"
+            }
+        ]
+    ],
+    "results": [
+        [
+            [1, 0, "Sydney Arena long stadium name", "1 Nov 2018 10:00", "First Game"],
+            [1, 3, "Match PLace", "2 Nov 2018 12:30", "Second Game"],
+            [2, 1, "International Arena", "10 Nov 2018 13:30", "3th Game"],
+            [1, 0, "New York City", "1 Nov 2018 15:45", "4th Game"],
+            [1, 2, "Sydney Stadium", "2 Nov 2018 20:00", "5th Game"],
+            [0, 4, "Address Stadium", "3 Nov 2018 22:00", "6th Game"],
+            [1, 0, "International Hall", "10 Nov 2018 18:00", "7th Game"],
+            [1, 0, "Match address", "3 Nov 2018 12:00", "1/16 Round Game"],
+            [1, 3, "Game address", "3 Nov 2018 10:00", "1/16 Round Game"],
+            [1, 0, "Arena very long stadium name to long to display whole line", "13 Nov 2018 15:30", "1/16 Round Game"],
+            [0, 6, "Match address", "4 Nov 2018 14:00", "1/16 Round Game"],
+            [4, 3, "Match address", "5 Nov 2018 10:00", "1/16 Round Game"],
+            [2, 3, "Match address", "6 Nov 2018 18:00", "1/16 Round Game"],
+            [1, 4, "Match address", "6 Nov 2018 10:30", "1/16 Round Game"],
+            [0, 6, "Match address", "7 Nov 2018 13:30", "1/16 Round Game"],
+            [2, 3, "Match address", "8 Nov 2018 17:30", "1/16 Round Game"]
+        ],
+        [
+            [2, 0, "Address Stadium", "9 Nov 2018 10:00", "1/8 Round Match"],
+            [3, 2, "Address Stadium", "9 Nov 2018 11:00", "1/8 Round Match"],
+            [1, 2, "Address Stadium", "11 Nov 2018 12:00", "1/8 Round Match"],
+            [4, 0, "Address Stadium", "11 Nov 2018 13:00", "1/8 Round Match"],
+            [3, 1, "Address Stadium", "12 Nov 2018 14:00", "1/8 Round Match"],
+            [4, 3, "Address Stadium", "12 Nov 2018 15:00", "1/8 Round Match"],
+            [5, 0, "Address Stadium", "13 Nov 2018 16:30", "1/8 Round Match"],
+            [3, 0, "Address Stadium", "13 Nov 2018 17:00", "1/8 Round Match"]
+        ],
+        [
+            [0, 2, "Another Pace Address", "14 Nov 2018 20:00", "Quarterfinal First"],
+            [1, 0, "Stadium address", "15 Nov 2018 12:30", "Quarterfinal Second"],
+            [2, 3, "Great Arena", "16 Nov 2018 16:30", "Quarterfinal Third"],
+            [4, 0, "Super Stadium", "17 Nov 2018 19:00", "Quarterfinal Forth"]
+        ],
+        [
+            [1, 0, "Address of Match", "19 Nov 2018 18:00", "Semifinal First"],
+            [2, 1, "Stadium pLace", "19 Nov 2018 21:00", "Semifinal Second"]
+        ],
+        [
+            [4, 2, "Zayed Sports City Stadium", "22 Nov 2018 20:00", "Final Game"],
+            [1, 4, "Sports City Stadium", "20 Nov 2018 17:00", "Second Final"]
+        ]
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "teams": [
+        [
+            {"name": "Australia", "flag": "au"},
+            {"name": "United States of America", "flag": "us"}
+        ],
+        [
+            {"name": "New Zealand", "flag": "nz"},
+            {"name": "Egypt", "flag": "eg"}
+        ],
+        [
+            {"name": "Poland","flag": "pl"},
+            {"name": "Brasil", "flag": "br"}
+        ],
+        [
+            {"name": "Hungary", "flag": "hu"},
+            {"name": "Germany", "flag": "de"}
+        ]
+    ],
+    "results": [
+        [
+            [1, 0, "Sydney Arena long stadium name", "8 Nov 2018 10:00", "First Game"],
+            [1, 3, "Match PLace", "9 Nov 2018 12:30", "Second Game"],
+            [3, 2, "International Arena", "10 Nov 2018 15:30", "3th Game"],
+            [1, 0, "Match address", "10 Nov 2018 18:00", "4th Game"]
+        ],
+        [
+            [3, 2, "Another stadium pLace", "16 Nov 2018 21:30", "Semifinal First"],
+            [0, 2, "Stadium address", "16 Nov 2018 12:30", "Semifinal Second"]
+        ],
+        [
+            [4, 2, "Zayed Sports City Stadium", "20 Nov 2018 20:00", "Final Game"],
+            [1, 4, "Sports City Stadium", "19 Nov 2018 18:00", "Second Final"]
+        ]
+    ]
+}

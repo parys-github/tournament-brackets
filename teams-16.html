@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tournament Brackets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="dist/img/icons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="dist/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="dist/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="dist/img/icons/favicon-16x16.png">
+  <link rel="manifest" href="dist/img/icons/site.webmanifest">
+  <link rel="mask-icon" href="dist/img/icons/safari-pinned-tab.svg" color="#494949">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-TileImage" content="dist/img/icons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript" src="dist/js/vendor.js"></script>
+  <link rel="stylesheet" href="dist/css/app.css">
+  <script type="text/javascript">
+    $(function () {
+      var demos = ['playoff']
+      $.each(demos, function (i, d) {
+        var demo = $('div#' + d)
+        $('<div class="demo animated fadeIn slow"></div>').appendTo(demo)
+      })
+    })
+  </script>
+</head>
+
+<body class="render">
+<nav class="navbar-fixed-top">
+  <h2 class="animated fadeInDown">Brackets<span class="event">- 16 teams, 4 rounds</span></h2>
+  <div class="docs-link animated fadeInRight"><a href="http://www.aropupu.fi/bracket/" target="_blank">jQuery Docs</a></div>
+  <h5 class="nav"><a href="index.html" target="_self">32 teams</a><a class="active" href="teams-16.html" target="_self">16 teams</a><a href="teams-8.html" target="_self">8 teams</a><a href="no-scores.html" target="_self">no scores</a><a href="double.html" target="_self">Double</a><a
+    target="_blank" href="data-16.json">json</a><a href="javascript:window.print()">Print</a></h5>
+</nav>
+<div class="turnament-bracket">
+  <div id="playoff" class="graph-block"></div>
+</div>
+
+<script type="text/javascript">
+  function saveFn(data, userData) {
+    var json = jQuery.toJSON(data)
+
+    $('#saveOutput').text(JSON.stringify(data, null, 2))
+  }
+
+  function edit_fn(container, data, place, time, doneCb) {
+    var input = $('<input type="text">')
+    input.val(data ? data.flag + ':' + data.name : '')
+    container.html(input)
+    input.focus()
+    input.blur(function () {
+      var inputValue = input.val()
+      if (inputValue.length === 0) {
+        doneCb(null); // Drop the team and replace with BYE
+      } else {
+        var flagAndName = inputValue.split(':') // Expects correct input
+        doneCb({flag: flagAndName[0], name: flagAndName[1]})
+      }
+    })
+  }
+
+  function render_fn(container, data, score, state) {
+    switch (state) {
+      case "empty-bye":
+        container.append("No team")
+        return;
+      case "empty-tbd":
+        container.append("Upcoming")
+        return;
+
+      case "entry-no-score":
+      case "entry-default-win":
+      case "entry-complete":
+        container.append('<img src="dist/img/flags/' + data.flag + '.png" /> ').append(data.name).append();
+        return;
+    }
+  }
+
+  $(function () {
+
+    $.getJSON("data-16.json", function (data) {
+      window.br = $('div#playoff .demo').bracket({
+        dir: 'lr',
+        teamWidth: 343,
+        scoreWidth: 20,
+        matchMargin: 45,
+        roundMargin: 32,
+        centerConnectors: true,
+        init: data,
+        // save: function () {
+        // }, /* without save() labels are disabled */
+        decorator: {
+          edit: edit_fn,
+          render: render_fn
+        }
+      });
+
+      var r, m, matches;
+      var rounds = $('.round');
+      console.log('matches', matches);
+      for (r = 0; r < rounds.length; r++) {
+        matches = rounds.eq(r).find('.match');
+        console.log('matches', matches);
+        if (data.results[r]) {
+          for (m = 0; m < matches.length; m++) {
+            matches.eq(m).find('.teamContainer').prepend('<div class="match-label"><div class="match-location">' + data.results[r][m][2] + '</div><div class="match-date">' + data.results[r][m][3] + '</div><div class="match-id">' + data.results[r][m][4] + '</div></div>');
+          }
+        }
+      }
+      // add class for specific rounds number print
+      if ($('.round').length === 7) {
+        $("body").addClass("seven-rounds");
+      }
+      if ($('.round').length === 6) {
+        $("body").addClass("six-rounds");
+      }
+      if ($('.round').length === 5) {
+        $("body").addClass("five-rounds");
+      }
+      if ($('.round').length === 4) {
+        $("body").addClass("four-rounds");
+      }
+      if ($('.round').length === 3) {
+        $("body").addClass("three-rounds");
+      }
+    });
+  })
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+{
+    "teams": [
+        [
+            {
+                "name": "Australia",
+                "flag": "au"
+            },
+            {
+                "name": "United States of America",
+                "flag": "us"
+            }
+        ],
+        [
+            {
+                "name": "New Zealand",
+                "flag": "nz"
+            },
+            {
+                "name": "Egypt",
+                "flag": "eg"
+            }
+        ],
+        [
+            {
+                "name": "Poland",
+                "flag": "pl"
+            },
+            {
+                "name": "Brasil",
+                "flag": "br"
+            }
+        ],
+        [
+            {
+                "name": "Italy",
+                "flag": "it"
+            },
+            {
+                "name": "Portugal",
+                "flag": "pt"
+            }
+        ],
+        [
+            {
+                "name": "Denmark",
+                "flag": "dk"
+            },
+            {
+                "name": "France",
+                "flag": "fr"
+            }
+        ],
+        [
+            {
+                "name": "United Arab Emirates",
+                "flag": "ae"
+            },
+            {
+                "name": "Norway",
+                "flag": "no"
+            }
+        ],
+        [
+            {
+                "name": "Greece",
+                "flag": "gr"
+            },
+            {
+                "name": "Spain",
+                "flag": "es"
+            }
+        ],
+        [
+            {
+                "name": "South Africa",
+                "flag": "za"
+            },
+            {
+                "name": "Germany",
+                "flag": "de"
+            }
+        ]
+    ],
+    "results": [
+        [
+            [null, null, "Sydney Arena long stadium name", "8 Nov 2018 10:00", "First Game"],
+            [null, null, "Match PLace", "9 Nov 2018 12:30", "Second Game"],
+            [null, null, "International Arena", "10 Nov 2018 14:30", "3th Game"],
+            [null, null, "New York City", "10 Nov 2018 17:00", "4th Game"],
+            [null, null, "Sydney Stadium", "11 Nov 2018 18:00", "5th Game"],
+            [null, null, "Address Stadium", "101 Nov 2018 21:00", "6th Game"],
+            [null, null, "Internationsl Hall", "12 Nov 2018 10:00", "7th Game"],
+            [null, null, "Match address", "12 Nov 2018 09:00", "8th Game"]
+        ]
+    ]
+}

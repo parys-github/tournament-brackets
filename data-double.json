@@ -1,0 +1,22 @@
+{
+    "teams": [
+        [
+            {"name": "Australia" 1, "flag": "au"},
+            {"name": "USA 2", "flag": "us"}
+        ],
+        [
+            {"name": "NZ 3", "flag": "nz"},
+            {"name": "Egypt 4", "flag": "eg"}
+        ]
+    ],
+    "results": [[
+      [[1, 2, "Sydney Arena", "Time 10:00", "First Game"], [3, 4, "Match PLace", "Time 12:30", "Second Game"]],
+      [[5,6]]
+    ], [
+      [[7, 8, "Zayed", "20 N 2018 9:00", "Game"}],
+       [9, 10, "Sports", "19 N 2018 9:00", "Gamel"]]
+    ], [              /* FINALS */
+      [[1,12], [13,14]],
+      [[15,16]]       /* LB winner won first round so need a rematch */
+    ]]
+}

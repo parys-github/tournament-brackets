@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <title>Tournament Brackets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="dist/img/icons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="dist/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="dist/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="dist/img/icons/favicon-16x16.png">
+  <link rel="manifest" href="dist/img/icons/site.webmanifest">
+  <link rel="mask-icon" href="dist/img/icons/safari-pinned-tab.svg" color="#494949">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-TileImage" content="dist/img/icons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript" src="dist/js/vendor.js"></script>
+  <link rel="stylesheet" href="dist/css/app.css">
+  <script type="text/javascript">
+    $(function () {
+      var demos = ['doubleElimination']
+      $.each(demos, function (i, d) {
+        var demo = $('div#' + d)
+        $('<div class="demo animated fadeIn slow"></div>').appendTo(demo)
+      })
+    })
+  </script>
+</head>
+<body class="render double">
+<nav class="navbar-fixed-top">
+  <h2 class="animated fadeInDown">Brackets<span class="event">- Double elimination</span></h2>
+  <div class="docs-link animated fadeInRight"><a href="http://www.aropupu.fi/bracket/" target="_blank">jQuery Docs</a></div>
+  <h5 class="nav">
+    <a href="index.html" target="_self">32 teams</a>
+    <a href="teams-16.html" target="_self">16 teams</a>
+    <a href="teams-8.html" target="_self">8 teams</a>
+    <a href="no-scores.html" target="_self">no scores</a>
+    <a class="active" href="double.html" target="_self">Double</a><a
+    target="_blank" href="data-double.json">json</a><a href="javascript:window.print()">Print</a>
+    <span class="edit animated bounceInLeft">
+      <span class="pencil"><img src="dist/img/icons/pencil.svg"/></span>
+      <span class="ttip">
+        <span>Click and edit the <b>score</b> of the match to change the game scenario.</span>
+      </span>
+      </span>
+  </h5>
+</nav>
+<div class="turnament-bracket">
+  <div id="main">
+    <div id="doubleElimination" class="graph-block"></div>
+  </div>
+</div>
+<script type="text/javascript">
+
+  /* Custom data objects passed as teams */
+  var doubleEliminationData = {
+    teams: [
+      [
+        {name: "Germany", flag: 'de'}, {name: "Croatia", flag: 'cr'}
+      ],
+      [
+        {name: "Brasil", flag: 'br'}, {name: "Canada", flag: 'ca'}
+      ],
+      [
+        {name: "Spain", flag: 'es'}, {name: "Greece ", flag: 'gr'}
+      ],
+      [
+        {name: "France", flag: 'fr'}, {name: "Rusia", flag: 'ru'}
+      ]
+    ],
+    results: [[/* WINNER BRACKET */
+      [[0, 1, "Sydney Arena Stadium", "8 Nov 2018 10:00", "First Game"],
+        [1, 2, "International Arena", "9 Nov 2018 12:30", "Second Game"],
+        [0, 1, "Houston Hall", "8 Nov 2018 10:00", "Third Game"],
+        [1, 2, "Opera House", "9 Nov 2018 12:30", "Fourth Game"]
+      ], /* first and second matches of the first round */
+      [[2, 3, "Croatian Win", "10 Nov 2018 10:00", "Third Game"],
+        [4, 5, "SNew Yourk City", "10 Nov 2018 10:00", "Third Game"]
+      ],
+      [[5, 0, "Jamaica Win"]
+      ]/* second round */
+    ], [/* LOSER BRACKET */
+      [[1, 5, "Brasil Win"], [4, 1, "Spain Win"]], /* first round */
+      [[0, 1, "Canada Win"], [1, 3, "Croatia Win"]],
+      [[3, 1]],
+      [[3, 0]]
+      /* second round */
+    ],
+      [/* FINALS */
+        [[1, 2], [2, 4]],
+        [[0, 3, "Greece Winner"]]       /* LB winner won first round so need a rematch */
+      ]]
+  };
+
+  /* Edit function is called when team label is clicked */
+  function edit_fn(container, data, doneCb) {
+    var input = $('<input type="text">')
+    input.val(data ? data.flag + ':' + data.name : '')
+    container.html(input)
+    input.focus()
+    input.blur(function () {
+      var inputValue = input.val()
+      if (inputValue.length === 0) {
+        doneCb(null); // Drop the team and replace with BYE
+      } else {
+        var flagAndName = inputValue.split(':') // Expects correct input
+        doneCb({flag: flagAndName[0], name: flagAndName[1]})
+      }
+    })
+  }
+
+  function render_fn(container, data, score, state) {
+    switch (state) {
+      case "empty-bye":
+        container.append("Unknown yet")
+        return;
+      case "empty-tbd":
+        container.append("Upcoming")
+        return;
+
+      case "entry-no-score":
+      case "entry-default-win":
+      case "entry-complete":
+        container.append('<img src="dist/img/flags/' + data.flag + '.png" /> ').append(data.name)
+        return;
+    }
+  }
+
+  $(function () {
+    $('div#doubleElimination .demo').bracket({
+      init: doubleEliminationData,
+      save: function () {
+      }, /* without save() labels are disabled */
+      decorator: {
+        edit: edit_fn,
+        render: render_fn
+      }
+    })
+  });
+
+  $(function () {
+    $('div#doubleElimination .demo').bracket({
+      dir: 'lr',
+      teamWidth: 170,
+      scoreWidth: 20,
+      matchMargin: 40,
+      roundMargin: 30,
+      centerConnectors: false,
+      init: doubleEliminationData,
+      save: function () {
+      }, /* without save() labels are disabled */
+      decorator: {
+        edit: edit_fn,
+        render: render_fn
+      }
+    });
+  })
+
+</script>
+</body>
+</html>

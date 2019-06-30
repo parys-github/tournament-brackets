@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tournament Brackets</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="dist/img/icons/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="dist/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="dist/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="dist/img/icons/favicon-16x16.png">
+  <link rel="manifest" href="dist/img/icons/site.webmanifest">
+  <link rel="mask-icon" href="dist/img/icons/safari-pinned-tab.svg" color="#494949">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-TileImage" content="dist/img/icons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript" src="dist/js/vendor.js"></script>
+  <link rel="stylesheet" href="dist/css/app.css">
+  <script type="text/javascript">
+    $(function () {
+      var demos = ['playoff']
+      $.each(demos, function (i, d) {
+        var demo = $('div#' + d)
+        $('<div class="demo animated fadeIn slow"></div>').appendTo(demo)
+      })
+    })
+  </script>
+</head>
+
+<body class="render">
+<nav class="navbar-fixed-top">
+  <div class="docs-link animated fadeInRight"><a href="http://www.aropupu.fi/bracket/" target="_blank">jQuery Docs</a></div>
+  <h5 class="nav"><a class="active" href="index.html" target="_self">32 teams</a><a href="teams-16.html" target="_self">16 teams</a><a href="teams-8.html" target="_self">8 teams</a><a href="no-scores.html" target="_self">no scores</a><a
+    href="double.html" target="_self">Double</a><a target="_blank" href="data-32.json">json</a><a href="javascript:window.print()">Print</a></h5>
+</nav>
+  <h2 class="animated fadeInRight slow">Brackets<span class="event">- 32 teams, 5 rounds</span></h2>
+<div class="turnament-bracket">
+  <div id="playoff" class="graph-block"></div>
+</div>
+<script type="text/javascript" src="dist/js/custom.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142782455-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142782455-1');
+</script>
+</body>
+
+</html>
