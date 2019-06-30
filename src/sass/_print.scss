@@ -1,0 +1,176 @@
+@media print {
+  /*  @page {
+      size: A4 landscape;
+      max-height: 100%;
+      max-width: 100%
+    }*/
+  html {
+    height: 100vh;
+    body {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      /* IE4-8 and 9 (deprecated). */
+      filter: Gray();
+      /* SVG version for IE10, Chrome 17, FF3.5,
+         Safari 5.2 and Opera 11.6 */
+      filter: url('#grayscale');
+      /* CSS3 filter, at the moment Webkit only. Prefix it for
+         future implementations */
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%); /* future-proof */
+      &.five-rounds {
+        .turnament-bracket {
+          .graph-block {
+            padding: 0;
+            margin: 0;
+            .jQBracket {
+              .bracket {
+                position: absolute;
+                left: 0;
+                .round {
+                  max-width: 188px !important;
+                  .match {
+                    .teamContainer {
+                      max-width: 188px !important;
+                      .match-location {
+                        width: 172px !important;
+                        right: -8px !important;
+                      }
+                      .team {
+                        max-width: 188px !important;
+                        .label {
+                          max-width: 170px;
+                          white-space: nowrap;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.four-rounds {
+        .turnament-bracket {
+          .graph-block {
+            padding: 0;
+            margin: 0;
+            .jQBracket {
+              .bracket {
+                position: absolute;
+                left: 0;
+                .round {
+                  max-width: 234px !important;
+                  .match {
+                    .teamContainer {
+                      max-width: 234px !important;
+                      .match-location {
+                        width: 216px !important;
+                        right: -8px !important;
+                      }
+                      .team {
+                        max-width: 234px !important;
+                        .label {
+                          max-width: 192px;
+                          white-space: nowrap;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.three-rounds {
+        .turnament-bracket {
+          .graph-block {
+            padding: 0;
+            margin: 0;
+            .jQBracket {
+              .bracket {
+                position: absolute;
+                left: 0;
+                .round {
+                  max-width: 340px !important;
+                  .match {
+                    .teamContainer {
+                      max-width: 340px !important;
+                      .match-location {
+                        width: 324px!important;
+                        right: -8px !important;
+                      }
+                      .team {
+                        max-width: 340px !important;
+                        .label {
+                          max-width: 192px;
+                          white-space: nowrap;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .turnament-bracket {
+        .graph-block {
+          padding: 0;
+          margin: 0;
+          .jQBracket {
+            .bracket {
+              position: absolute;
+              left: 0;
+              .round {
+                max-width: 190px !important;
+                .match {
+                  .teamContainer {
+                    max-width: 190px !important;
+                    .match-location {
+                      width: 172px !important;
+                      right: -8px !important;
+                    }
+                    .team {
+                      max-width: 190px !important;
+                      .label {
+                        max-width: 170px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .navbar-fixed-top {
+      .docs-link, .nav {
+        display: none;
+      }
+      h2 {
+        left: 0;
+        text-align: left;
+        position: relative;
+        width: 100%;
+        padding-left: 0;
+        background-color: transparent;
+        color: black;
+      }
+    }
+  }
+}

@@ -1,0 +1,673 @@
+body {
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  background-color: white;
+  background: url("../img/match-bg.jpg") no-repeat top center;
+  background-size: cover;
+  background-attachment: fixed;
+  &.render {
+    nav {
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 0 2px 0 #000;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      height: 38px;
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: 300;
+      background-color: $track-color;
+      width: auto;
+      display: inline-block;
+      margin: 0 auto;
+      padding: 5px 15px 6px;
+      color: white;
+      top: 38px;
+      right: 2px;
+      position: absolute;
+      .event {
+        display: inline-block;
+        font-size: 16px;
+        padding-left: 6px;
+      }
+    }
+    .turnament-bracket {
+      padding: 60px 0 0;
+      margin: 0;
+      display: block;
+      .tools {
+        display: none; // temporarly hidden element
+      }
+      .bracket {
+        .round {
+          &:last-child {
+            &:before {
+              content: "Final Game";
+            }
+            .match:nth-child(2) {
+              .teamContainer {
+                top: 70px !important;
+              }
+            }
+            .match:first-child {
+              .teamContainer {
+                bottom: -40px !important;
+              }
+            }
+            .match {
+              .teamContainer {
+                .team:nth-child(2) {
+                  border-radius: 0;
+                }
+
+              }
+            }
+          }
+          &:nth-last-child(2) {
+            &:before {
+              content: "Semifinals Round";
+            }
+          }
+          &:nth-last-child(3) {
+            &:before {
+              content: "Quarterfinals Round";
+            }
+          }
+
+          &:nth-last-child(4) {
+            &:before {
+              content: "1/8 Round";
+            }
+          }
+          &:nth-last-child(5) {
+            &:before {
+              content: "1/16 Round";
+            }
+          }
+          &:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 10px;
+            font-size: 14px;
+            text-align: right;
+          }
+          display: flex;
+          flex-direction: column;
+          border-right: 1px rgba(128, 128, 128, 0.2) dashed;
+          padding-top: 20px;
+          &:first-child {
+            border-left: 1px rgba(128, 128, 128, 0.2) dashed;
+          }
+          .match {
+            border-radius: 6px 6px 0 0;
+            .teamContainer {
+              margin: 0;
+              border: solid 1px #ececec;
+              border-radius: 6px;
+              background-color: $match-color;
+              box-shadow: 0 0 2px 0 rgb(0, 0, 0);
+              padding: 3px 0 0;
+              border-bottom: solid 1px $shadow-col;
+              .score {
+                font-size: 14px;
+                font-weight: bold;
+              }
+              .match-label {
+                padding: 0;
+                text-align: right;
+                border-radius: 5px 5px 0 0;
+                border-bottom: 1px solid #f5f5f5;
+                .match-location {
+                  color: $location-col;
+                  line-height: normal;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  position: relative;
+                  right: -16px;
+                  top: -1px;
+                  width: 260px;
+                }
+                .match-date {
+                  font-size: 11px;
+                  text-align: right;
+                  padding-right: 8px;
+                  color: $date-col;
+                  font-weight: bold;
+                  text-rendering: geometricPrecision;
+                  position: relative;
+                  top: -1px;
+                }
+                .match-id {
+                  position: absolute;
+                  top: -10px;
+                  left: -3px;
+                  display: block;
+                  background-color: #fff;
+                  color: #595959;
+                  border-radius: 3px;
+                  font-size: 11px;
+                  line-height: 11px;
+                  text-align: center;
+                  padding: 1px 5px 0;
+                  min-width: 12px;
+                  height: 12px;
+                  border: none;
+                  box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.75);
+                }
+              }
+              .team {
+                background-color: transparent;
+                border: 0;
+                &:nth-last-child(2) {
+                  border-radius: 0 0 5px 5px;
+                }
+                .bubble {
+                  left: -80px;
+                  width: 55px;
+                  color: white;
+                  padding: 0;
+                  font-size: 14px;
+                  font-weight: bold;
+                  letter-spacing: 1px;
+                  &:after {
+                    left: 55px;
+                    border-left: 30px solid transparent;
+                    border-right: 0;
+                  }
+                  &.fourth {
+                    background-color: $fourth-col;
+                    &:after {
+                      border-left-color: rgba($fourth-col, 0.6);
+                      left: 55px;
+                      border-right: 0;
+                    }
+                  }
+                  &.third {
+                    background-color: $third-col;
+                    &:after {
+                      border-left-color: rgba($third-col, 0.6);
+                      left: 55px;
+                      border-right: 0;
+                    }
+                  }
+                }
+                &.highlightWinner, &.highlightLoser {
+                  color: white;
+                  .score {
+                    color: white !important;
+                  }
+                }
+                .label {
+                  text-align: left;
+                  padding-left: 8px;
+                }
+                &.win {
+                  &.highlightWinner {
+                    .bubble {
+                      background-color: $win-color;
+                      &:after {
+                        border-left-color: rgba($win-color, 0.6);
+                      }
+                    }
+                  }
+                  &.highlightLoser {
+                    background-color: rgba($los-color, 0.99);
+                  }
+                  div {
+                    &.score {
+                      color: $track-color;
+                    }
+                  }
+                  &.highlight {
+                    .score {
+                      color: white;
+                    }
+                  }
+                }
+                &.lose {
+                  &.highlightLoser {
+                    .bubble {
+                      background-color: $los-color;
+                      &:after {
+                        border-left-color: rgba($los-color, 0.6);
+                      }
+                    }
+                  }
+
+                }
+                &.highlight {
+                  background-color: $track-color;
+                  color: white;
+                  .score {
+                    color: white;
+                  }
+                }
+                &.highlightWinner {
+                  background-color: rgba($win-color, 0.99);
+                  .score {
+                    color: white;
+                  }
+                }
+                &.highlightLoser {
+                  background-color: rgba($los-color, 0.99);
+                  .score {
+                    color: white;
+                  }
+                }
+              }
+              .connector {
+                border-color: $connector;
+                border-width: 2px;
+                &.highlight {
+                  border-color: $connect-hover;
+                }
+                &.highlightWinner {
+                  border-color: $win-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .jQBracket {
+      position: relative;
+      left: 0;
+      padding: 0 0 20px;
+      top: 0;
+      @media (max-width: $bracket-left) {
+        left: 0;
+        transform: none;
+      }
+      @media (min-width: $bracket-left) {
+        .tools {
+          left: -3px !important;
+        }
+      }
+
+      div {
+        &.bracket {
+          float: left;
+        }
+      }
+
+    }
+  }
+  .graph-block {
+    width: 100%;
+    padding: 0 0 50px 10px;
+    display: inline-flex;
+    @media (max-width: $bracket-left) {
+      padding-left: 10px;
+    }
+    div {
+      &.jQBracket {
+        min-width: 100%;
+        .bracket {
+          .round {
+            &:nth-child(2) {
+              .match {
+                .teamContainer {
+                  min-height: 72px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.five-rounds {
+    .turnament-bracket {
+      .bracket {
+        .round {
+          &:last-child {
+            .match:nth-child(2) {
+              .teamContainer {
+                top: 72px !important;
+              }
+            }
+          }
+          .match {
+            .teamContainer {
+              .match-label {
+                .match-location {
+                  width: 260px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.four-rounds {
+    .turnament-bracket {
+      .bracket {
+        .round {
+          &:last-child {
+            .match:nth-child(2) {
+              .teamContainer {
+                top: 68px !important;
+              }
+            }
+          }
+          .match {
+            .teamContainer {
+              .match-label {
+                .match-location {
+                  width: 340px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.three-rounds {
+    .turnament-bracket {
+      .jQBracket {
+        .bracket {
+          .round {
+            @media (max-width: $breakpoint-xlg) {
+              .teamContainer {
+              }
+            }
+            &:last-child {
+              .match:nth-child(2) {
+                .teamContainer {
+                  top: 137px !important;
+                }
+              }
+            }
+            .match {
+              .teamContainer {
+                .match-label {
+                  .match-location {
+                    width: 472px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .navbar-fixed-top {
+    width: 100%;
+    .nav {
+      position: absolute;
+      text-align: left;
+      top: 10px;
+      left: 20px;
+      padding: 0;
+      line-height: 14px;
+      margin: 0;
+      z-index: 9;
+      a {
+        display: inline-block;
+        background-color: $track-color;
+        text-transform: uppercase;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        padding: 3px 8px;
+        margin: 0 5px 0 0;
+        font-size: 12px;
+        float: left;
+        &:hover {
+          background-color: $win-color;
+        }
+        &.active {
+          background-color: $win-color;
+        }
+      }
+    }
+  }
+  &.double {
+    .turnament-bracket {
+      @media (min-width: $bracket-left) {
+        .graph-block {
+          margin-left: 0;
+        }
+      }
+      #doubleElimination {
+        .jQBracket {
+          .bracket {
+            float: right;
+            .round {
+              padding-top: 0;
+              &:nth-child(2) {
+                .match {
+                  .teamContainer {
+                    min-height: auto;
+                    top: 60px !important;
+                  }
+                }
+              }
+              border-right: 0;
+              &:last-child {
+                .match {
+                  &:first-child {
+                    .teamContainer {
+                      bottom: -26px !important;
+                    }
+                  }
+                }
+
+              }
+              &:first-child {
+                border-left: 0;
+              }
+              &:before {
+                display: none;
+              }
+              .match {
+                .teamContainer {
+                  .team {
+                    &.win {
+                      &.highlightWinner {
+                        .bubble {
+                          &:after {
+                            border-right-color: rgba($win-color, 0.6);
+                          }
+                        }
+                      }
+                    }
+                    .bubble {
+                      left: auto;
+                      right: -80px;
+                      &:after {
+                        left: -30px;
+                        border-left: 0;
+                        border-right: 30px solid transparent;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .loserBracket {
+            .round {
+              .match {
+                .teamContainer {
+                  margin: 0;
+                  border: solid 1px #ececec;
+                  border-radius: 6px;
+                  background-color: #fafafa;
+                  -webkit-box-shadow: 0 0 2px 0 #000;
+                  box-shadow: 0 0 2px 0 #000;
+                  padding: 3px 0 0;
+                  border-bottom: solid 1px #e5e5e5;
+                  .team {
+                    border: 0;
+                    background-color: transparent;
+                    &:nth-child(2) {
+                      border-radius: 0 0 5px 5px;
+                    }
+                    &.highlightWinner {
+                      background-color: $win-color;
+                      color: white;
+                    }
+                    &.win {
+                      &.highlight {
+                        background-color: $track-color;
+                        color: white;
+                      }
+                      &.highlightWinner {
+                        .score {
+                          color: white;
+                        }
+                        &.highlight {
+                          color: white;
+                          background-color: $track-color;
+                        }
+                      }
+                    }
+                    &.lose {
+                      &.highlight {
+                        background-color: $track-color;
+                        color: white;
+                      }
+                      &.highlightLoser {
+                        &.highlight {
+                          background-color: $track-color;
+                          color: white;
+                        }
+                      }
+                    }
+                    &.highlight {
+                      div.score {
+                        color: white;
+                      }
+                    }
+                    .label {
+                      text-align: left;
+                      padding-left: 8px;
+                    }
+                  }
+                  .connector {
+                    &.highlightWinner {
+                      border-color: $win-color;
+                    }
+                    &.highlight {
+                      border-color: $win-color;
+                    }
+                  }
+                  .score {
+                    font-weight: bold;
+                  }
+                }
+              }
+            }
+          }
+          .finals {
+            .round {
+              .match {
+                .teamContainer {
+                  margin: 0;
+                  border: solid 1px #ececec;
+                  border-radius: 6px;
+                  background-color: #fafafa;
+                  -webkit-box-shadow: 0 0 2px 0 #000;
+                  box-shadow: 0 0 2px 0 #000;
+                  padding: 3px 0 0;
+                  border-bottom: solid 1px #e5e5e5;
+                  .team {
+                    &.lose {
+                      &.highlightLoser {
+                        background-color: $los-color;
+                        .label, .score {
+                          color: white;
+                        }
+                      }
+                    }
+                    border: 0;
+                    background-color: transparent;
+                    .bubble {
+                      right: -60px;
+                      width: 55px;
+                      color: white;
+                      padding: 0;
+                      font-size: 14px;
+                      font-weight: bold;
+                      letter-spacing: 1px;
+                    }
+                    &.highlight {
+                      background-color: $track-color;
+                      color: white;
+                    }
+                    &.highlightWinner {
+                      background-color: $win-color;
+                      color: white;
+                      .score {
+                        color: white;
+                      }
+                    }
+                    &:nth-child(2) {
+                      border-radius: 0 0 5px 5px;
+                    }
+                    .label {
+                      text-align: left;
+                      padding-left: 8px;
+                    }
+                    &.highlight {
+                      div.score {
+                        color: white;
+                      }
+                    }
+                    &.win {
+                      .bubble {
+                        background-color: rgba($win-color, 0.6);
+                        &:after {
+                          border-right-color: rgba($win-color, 0.6);;
+                        }
+                      }
+                    }
+                  }
+                  .connector {
+                    &.highlight, &.highlightWinner {
+                      border-color: $win-color;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .tools {
+            display: block;
+            position: absolute;
+            padding-right: 60px;
+            top: -16px;
+            left: -3px;
+            z-index: 9;
+            span {
+              display: inline;
+              width: 20px;
+              float: left;
+              padding: 0;
+              margin-right: 0;
+              background-color: $track-color;
+              font-weight: bold;
+              opacity: 1;
+              transition: all 0.3s ease-in-out;
+              &:hover {
+                background-color: $win-color;
+              }
+              &:first-child {
+                padding-top: 1px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
