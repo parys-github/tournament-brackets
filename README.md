@@ -19,7 +19,7 @@ Implemented libraries:
 
 ``` bash
 # Download or clone theme package
-git clone https://github.com/parys-github/competitions-brackets-visualisation.git
+git clone https://github.com/parys-github/tournament-brackets.git
 
 # Install NPM package, and any packages that it depends on.
 npm install
